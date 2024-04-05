@@ -24,6 +24,6 @@ By Ashton Cole
 	- `decomposeParDict`: A dictionary defining how the domain should be divided to solve in parallel.
 	- `fvSchemes`: A dictionary defining numerical schemes used for differential operators.
 	- `fvSolution`: A dictionary defining particular solvers and tolerances used.
-- `0`
+- `0/`
 	- `p`: Initial conditions for pressure.
 	- `U`: Initial conditions for velocity.
