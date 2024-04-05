@@ -1,0 +1,86 @@
+FoamFile
+{
+	version 2.0;
+	format ascii;
+	class dictionary;
+	object blockMeshDict;
+}
+
+convertToMeters 1.0;
+
+vertices
+(
+	// Cross-section 0
+	(0.000000e+00	0.000000e+00	0.000000e+00)	// 0
+	(5.000000e-01	0.000000e+00	0.000000e+00)	// 1
+	(4.330127e-01	2.500000e-01	0.000000e+00)	// 2
+
+	// Cross-section 1
+	(0.000000e+00	0.000000e+00	1.000000e+01)	// 3
+	(5.000000e-01	0.000000e+00	1.000000e+01)	// 4
+	(4.330127e-01	2.500000e-01	1.000000e+01)	// 5
+);
+
+blocks
+(
+	// Blocks section 0, i.e. cross-sections 0 to 1
+	hex (0 3 4 1 0 3 5 2) (400 20 6) simpleGrading (1.0 0.05 1.0) // Block 0
+);
+
+edges
+(
+	// Cross-section 0
+	arc 1 2 (4.829629e-01 1.294095e-01 0.000000e+00) // 1 to 2
+
+	// Cross-section 1
+	arc 4 5 (4.829629e-01 1.294095e-01 1.000000e+01) // 4 to 5
+);
+
+boundary
+(
+	inlet
+	{
+		type patch;
+		faces
+		(
+			(0 2 1 0)
+		);
+	}
+
+	outlet
+	{
+		type patch;
+		faces
+		(
+			(3 4 5 3)
+		);
+	}
+
+	wall
+	{
+		type wall;
+		faces
+		(
+			// Blocks section 0
+			(1 2 5 4) // Block 0
+		);
+	}
+
+	interiorA
+	{
+		type symmetryPlane;
+		faces
+		(
+			(0 1 4 3)
+		);
+	}
+
+	interiorB
+	{
+		type symmetryPlane;
+		faces
+		(
+			(0 3 5 2)
+		);
+	}
+);
