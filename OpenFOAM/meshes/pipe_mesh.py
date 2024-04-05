@@ -8,17 +8,17 @@ from math import pi, sin, cos
 
 R = 0.5 # Radius
 L = 10 # Length
-theta = 30 * pi / 180 # wedge angle
-nbth = 1 # Number of blocks along theta, each at most pi / 2
+theta = 360 * pi / 180 # wedge angle
+nbth = 4 # Number of blocks along theta, each at most pi / 2
 nbz = 1 # Number of blocks along z-axis
-ndpbth = 12 # Number of angular divisions per block
+ndpbth = 36 # Number of angular divisions per block
 ndpbr = 40 # Number of divisions along radius per block
 ndpbz = 800 # Number of divisions along z-axis per block
 grading = 0.025 # Grading for boundary layer along radius
 case = 'cfd' # 'cfd' or 'acoustic'
 interior = 'symmetry' # 'symmetry', 'cyclic', or 'wedge'
 c2m = 1.0 # Conversion to meters
-fname = 'blockMeshDict.pcyl10-c'
+fname = 'blockMeshDict.fcyl10-c'
 
 
 
