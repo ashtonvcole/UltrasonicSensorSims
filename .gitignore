@@ -1,0 +1,13 @@
+.DS_Store
+
+0.*
+[1-9]*
+processor*
+log.*
+constant/polyMesh/
+postProcessing/
+
+!0/
+!constant/transportProperties
+!system/
+!.gitignore
