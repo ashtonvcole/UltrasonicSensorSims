@@ -7,8 +7,9 @@
 [1-9]*
 processor*
 log.*
-constant/polyMesh/
+polyMesh/
 postProcessing/
+.bash_history
 
 !0/
 !constant/transportProperties
