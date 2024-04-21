@@ -63,3 +63,21 @@ vtx.close()
 vtx = VTXWriter(domain.comm, "works.bp", [u_])
 vtx.write(0)
 vtx.close()
+
+
+
+# Not using mixed element
+
+V = FunctionSpace(domain, ele_p)
+p = Function(V)
+p.name = 'p'
+p.interpolate(p_0)
+
+W_ = FunctionSpace(domain, ele_u_)
+u_ = Function(W_)
+u_.name = "u_"
+u_.interpolate(u_0)
+
+vtx = VTXWriter(domain.comm, "third.bp", [p, u_])
+vtx.write(0)
+vtx.close()
