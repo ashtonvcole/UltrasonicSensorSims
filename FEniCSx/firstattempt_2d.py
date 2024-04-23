@@ -112,7 +112,7 @@ def rho_p_0(x):
     # Note that x is a tensor of form [[all x's], [all y's], [all z's]]
     values = np.zeros(x.shape[1], dtype=PETSc.ScalarType)
     for ind in range(1, x.shape[1]):
-        if ((x[0][ind] - 0.5) ** 2 + (x[1][ind] - 0.5) ** 2) ** 0.5 < 0.05:\
+        if ((x[0][ind] - 0.5) ** 2 + (x[1][ind] - 0.5) ** 2) ** 0.5 < 0.05:
             values[ind] = x[0][ind] ** 2
         else:
             pass
@@ -121,7 +121,7 @@ def u_p_0_(x):
     # Note that x is a tensor of form [[all x's], [all y's], [all z's]]
     values = np.zeros((2, x.shape[1]), dtype=PETSc.ScalarType)
     for ind in range(1, x.shape[1]):
-        if ((x[0][ind] - 0.5) ** 2 + (x[1][ind] - 0.5) ** 2) ** 0.5 < 0.05:\
+        if ((x[0][ind] - 0.5) ** 2 + (x[1][ind] - 0.5) ** 2) ** 0.5 < 0.05:
             values[0][ind] = x[0][ind] ** 2
             values[1][ind] = x[1][ind] ** 2
         else:
@@ -183,9 +183,9 @@ W_, W_2VW_ = VW_.sub(1).collapse()
 
 # --- CONSTANTS ---
 
-k = Constant(domain, default_scalar_type(dt))
-c = Constant(domain, default_scalar_type(c))
-rho_bar = Constant(domain, default_scalar_type(rho_bar))
+k = Constant(domain, PETSc.ScalarType(dt))
+c = Constant(domain, PETSc.ScalarType(c))
+rho_bar = Constant(domain, PETSc.ScalarType(rho_bar))
 u_bar_ = Function(W_)
 u_bar_.name = 'u_bar_'
 u_bar_.interpolate(f_u_bar_)
